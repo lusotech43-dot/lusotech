@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — LusoTech</title>
+  <meta name="description" content="Software products built by LusoTech — tools and platforms for modern teams.">
+
+  <link rel="icon" type="image/png" href="brand/simpleicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('lusotech-theme');
+        var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (_) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="icon-defs" aria-hidden="true"></div>
+  <script>fetch('partials/icons.html').then(r => r.text()).then(t => { document.getElementById('icon-defs').innerHTML = t; });</script>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html">
+        <img src="brand/simpleicon.png" alt="LusoTech">
+        <span>LusoTech</span>
+      </a>
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a class="nav-link" href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a class="nav-link" href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a class="nav-link" href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+          <li><a class="nav-link" href="products.html" data-i18n="nav.products" aria-current="page">Products</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="nav-utils">
+            <div class="lang-switch" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
+              <button type="button" class="lang-btn" data-lang="en" data-i18n-attr="aria-label:lang.label">EN</button>
+              <button type="button" class="lang-btn" data-lang="pt" data-i18n-attr="aria-label:lang.label">PT</button>
+            </div>
+            <button type="button" class="theme-toggle" aria-pressed="false" data-i18n-attr="aria-label:theme.toLight" aria-label="Switch to light theme">
+              <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+              <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="12" y1="2"  x2="12" y2="4"/>
+                <line x1="12" y1="20" x2="12" y2="22"/>
+                <line x1="2"  y1="12" x2="4"  y2="12"/>
+                <line x1="20" y1="12" x2="22" y2="12"/>
+                <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/>
+                <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/>
+                <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/>
+              </svg>
+            </button>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="index.html#contact" data-i18n="nav.contact">Contact</a>
+          <a class="btn btn-primary btn-sm" href="#products" data-i18n="nav.cta">Get started</a>
+        </div>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" data-i18n-attr="aria-label:nav.toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-i18n="prod.eyebrow">Products and Services</span>
+      <h1 data-i18n="prod.title">Browse our catalog for finished products and available services.</h1>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-i18n="prod.cat.eyebrow">Catalog</span>
+        <h2 data-i18n="prod.cat.title">Maintenance & support.</h2>
+        <p class="lead" data-i18n="prod.cat.lead">Keep your digital presence running smoothly with our care-free maintenance plan. Custom projects are also available — <a href="index.html#contact" style="color: var(--orange-400); border-bottom: 1px solid currentColor;">get in touch</a>.</p>
+      </div>
+
+      <div class="product-grid reveal-stagger">
+
+        <!-- 1. Basic Maintenance -->
+        <div class="product-card"
+             data-name="Basic Maintenance"
+             data-desc="Maintenance and support for existing websites and applications. Perfect for businesses that need a reliable partner to keep their digital presence up and running smoothly."
+             data-price="€50 / month">
+          <div class="product-icon product-icon-bg-1">
+            <svg><use href="#i-cloud"/></svg>
+          </div>
+          <div class="product-body">
+            <h3 data-i18n="prod.1.name">Basic Maintenance</h3>
+            <p data-i18n="prod.1.desc">Maintenance and support for existing websites and applications. Perfect for businesses that need a reliable partner to keep their digital presence up and running smoothly.</p>
+            <ul class="product-features">
+              <li data-i18n="prod.1.f1">Domain Maintenance</li>
+              <li data-i18n="prod.1.f2">Code Updates</li>
+              <li data-i18n="prod.1.f3">Code Reviews</li>
+              <li data-i18n="prod.1.f4">Code Optimization</li>
+              <li data-i18n="prod.1.f5">Email/WhatsApp support</li>
+            </ul>
+            <div class="product-price">
+              <span class="currency">€</span>
+              <span class="amount" data-i18n="prod.1.price">50</span>
+              <span class="period" data-i18n="prod.1.period">/ month</span>
+            </div>
+            <a class="btn btn-ghost js-buy" href="#" data-i18n="prod.buy">Buy now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAYMENTS -->
+  <section class="payments">
+    <div class="container">
+      <div class="section-header center reveal">
+        <span class="eyebrow" data-i18n="prod.pay.eyebrow">Payments</span>
+        <h2 data-i18n="prod.pay.title">Payment Methods</h2>
+      </div>
+
+      <div class="payment-grid reveal-stagger">
+        <div class="payment-method">
+          <svg><use href="#i-visa"/></svg>
+          <span>VISA</span>
+        </div>
+        <div class="payment-method">
+          <svg><use href="#i-mastercard"/></svg>
+          <span>Mastercard</span>
+        </div>
+        <div class="payment-method">
+          <svg><use href="#i-paypal"/></svg>
+          <span>PayPal</span>
+        </div>
+        <div class="payment-method">
+          <svg><use href="#i-mbway"/></svg>
+          <span>MB WAY</span>
+        </div>
+        <div class="payment-method">
+          <svg><use href="#i-multibanco"/></svg>
+          <span>Multibanco</span>
+        </div>
+      </div>
+
+      <div class="text-center reveal">
+        <p style="color: var(--gray-300); max-width: 60ch; margin: 0 auto;" data-i18n="prod.pay.note">Need an enterprise contract, NET-30 invoicing, or a custom plan? <a href="index.html#contact" style="color: var(--orange-400); border-bottom: 1px solid currentColor;">Talk to us →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="container-narrow">
+        <h2 data-i18n="prod.cta.title">Not sure which one fits?</h2>
+        <p class="lead" data-i18n="prod.cta.lead">Tell us what you're building. We'll recommend the right product (or tell you honestly if none of them are a fit).</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href="index.html#contact" data-i18n="prod.cta.btn1">Get a recommendation</a>
+          <a class="btn btn-outline-light btn-lg" href="portfolio.html" data-i18n="prod.cta.btn2">See our work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html">
+            <img src="brand/simpleicon.png" alt="LusoTech">
+            <span>LusoTech</span>
+          </a>
+          <p class="footer-about" data-i18n="footer.about">Engineered digital solutions for businesses and private individuals.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.studio">Studio</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+            <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.services">Services</h4>
+          <ul>
+            <li><a href="index.html#services" data-i18n="footer.serv.custom">Custom Websites</a></li>
+            <li><a href="index.html#services" data-i18n="footer.serv.desktop">Desktop Applications</a></li>
+            <li><a href="index.html#services" data-i18n="footer.serv.automation">Business Automation</a></li>
+            <li><a href="index.html#services" data-i18n="footer.serv.maintenance">Maintenance & Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact">Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@lusotech.io" data-i18n="footer.mail">hello@lusotech.io</a></li>
+            <li><a href="tel:+351000000000" data-i18n="footer.phone">+351 000 000 000</a></li>
+            <li><a href="index.html#contact" data-i18n="footer.send">Send a brief</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copy">© 2026 LusoTech. All rights reserved.</span>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== PURCHASE MODAL ==================== -->
+  <div class="modal" id="purchase-modal" role="dialog" aria-modal="true" aria-labelledby="modal-product-name">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-product-name">Product</h3>
+        <button class="modal-close" data-i18n-attr="aria-label:prod.modal.close" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-product">
+          <div class="modal-product-info">
+            <h4 id="modal-product-name-2">Product</h4>
+            <span id="modal-product-desc">Description</span>
+          </div>
+          <div class="price" id="modal-product-price">€0</div>
+        </div>
+
+        <form id="payment-form">
+          <div style="margin-bottom: var(--space-4);">
+            <h4 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-3);" data-i18n="prod.modal.method">Payment method</h4>
+            <div class="payment-options">
+              <label class="payment-option">
+                <input type="radio" name="pay" value="card" checked>
+                <span class="label" data-i18n="prod.modal.card">Credit / Debit card</span>
+                <span class="desc" data-i18n="prod.modal.card.desc">Visa, Mastercard</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="pay" value="paypal">
+                <span class="label" data-i18n="prod.modal.paypal">PayPal</span>
+                <span class="desc" data-i18n="prod.modal.paypal.desc">Secure checkout</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="pay" value="mbway">
+                <span class="label" data-i18n="prod.modal.mbway">MB WAY</span>
+                <span class="desc" data-i18n="prod.modal.mbway.desc">Mobile payment</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="pay" value="crypto">
+                <span class="label" data-i18n="prod.modal.crypto">Crypto</span>
+                <span class="desc" data-i18n="prod.modal.crypto.desc">BTC, ETH, USDC</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field" style="margin-bottom: var(--space-3);">
+            <label for="email" data-i18n="prod.modal.email">Email</label>
+            <input type="email" id="email" name="email" required data-i18n-attr="placeholder:prod.modal.email.ph" placeholder="you@company.com">
+          </div>
+          <div class="field" style="margin-bottom: var(--space-5);">
+            <label for="card" data-i18n="prod.modal.cardnum">Card number</label>
+            <input type="text" id="card" name="card" data-i18n-attr="placeholder:prod.modal.cardnum.ph" placeholder="4242 4242 4242 4242" maxlength="19">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" data-i18n="prod.modal.submit">Complete purchase</button>
+          <p style="font-size: 0.8125rem; color: var(--gray-500); text-align: center; margin-top: var(--space-4);" data-i18n="prod.modal.note">Secured by 256-bit encryption. Cancel anytime.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== AI CHAT WIDGET ==================== -->
+  <div class="chat-launcher">
+    <button type="button" class="chat-toggle" id="chat-toggle" aria-label="Open chat" aria-expanded="false">
+      <svg class="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="Chat with LusoTech assistant" aria-hidden="true">
+    <div class="chat-header">
+      <div class="chat-avatar" aria-hidden="true">L</div>
+      <div class="chat-header-info">
+        <div class="title" data-i18n="chat.title">LusoTech Assistant</div>
+        <div class="subtitle" data-i18n="chat.subtitle">Online · replies in seconds</div>
+      </div>
+      <button type="button" class="chat-close" id="chat-close" aria-label="Close chat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="chat-body">
+      <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+      <div class="chat-suggestions" id="chat-suggestions">
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.1">What services do you offer?</button>
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.2">Tell me about pricing</button>
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.3">How do I start a project?</button>
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.4">Book a call</button>
+      </div>
+      <div class="chat-input">
+        <textarea id="chat-input" rows="1" data-i18n-attr="placeholder:chat.placeholder" placeholder="Type your message…"></textarea>
+        <button type="button" class="chat-send" id="chat-send" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/i18n-engine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

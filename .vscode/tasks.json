@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Claude Code",
+      "type": "shell",
+      "command": "ollama launch claude",
+      "problemMatcher": []
+    },
+
+    {
+      "label": "DeepSeek Coder (6.7B)",
+      "type": "shell",
+      "command": "ollama run deepseek-coder:6.7b",
+      "presentation": {
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+
+  {
+      "label": "Mistral (Latest)",
+      "type": "shell",
+      "command": "ollama run mistral:latest",
+      "presentation": {
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Qwen 3.5 (9B Local)",
+      "type": "shell",
+      "command": "ollama run qwen3.5:9b-q4_K_M",
+      "presentation": {
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Run Script",
+      "command": "node ai-project.js",
+      "problemMatcher": [
+        "$go"
+      ]
+    },
+
+    {
+      "label": "Start Open Code",
+      "type": "shell",
+      "command": "ollama launch opencode",
+      "problemMatcher": []
+    },
+  ]
+}

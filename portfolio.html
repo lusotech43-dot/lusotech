@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — LusoTech</title>
+  <meta name="description" content="Selected work — websites, SaaS products, and platforms built by the LusoTech team.">
+
+  <link rel="icon" type="image/png" href="brand/simpleicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('lusotech-theme');
+        var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (_) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="icon-defs" aria-hidden="true"></div>
+  <script>fetch('partials/icons.html').then(r => r.text()).then(t => { document.getElementById('icon-defs').innerHTML = t; });</script>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html">
+        <img src="brand/simpleicon.png" alt="LusoTech">
+        <span>LusoTech</span>
+      </a>
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a class="nav-link" href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a class="nav-link" href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a class="nav-link" href="portfolio.html" data-i18n="nav.portfolio" aria-current="page">Portfolio</a></li>
+          <li><a class="nav-link" href="products.html" data-i18n="nav.products">Products</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="nav-utils">
+            <div class="lang-switch" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
+              <button type="button" class="lang-btn" data-lang="en" data-i18n-attr="aria-label:lang.label">EN</button>
+              <button type="button" class="lang-btn" data-lang="pt" data-i18n-attr="aria-label:lang.label">PT</button>
+            </div>
+            <button type="button" class="theme-toggle" aria-pressed="false" data-i18n-attr="aria-label:theme.toLight" aria-label="Switch to light theme">
+              <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+              <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="12" y1="2"  x2="12" y2="4"/>
+                <line x1="12" y1="20" x2="12" y2="22"/>
+                <line x1="2"  y1="12" x2="4"  y2="12"/>
+                <line x1="20" y1="12" x2="22" y2="12"/>
+                <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/>
+                <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/>
+                <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/>
+              </svg>
+            </button>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="index.html#contact" data-i18n="nav.contact">Contact</a>
+          <a class="btn btn-primary btn-sm" href="products.html" data-i18n="nav.cta">Get started</a>
+        </div>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" data-i18n-attr="aria-label:nav.toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-i18n="port.eyebrow">Our Projects</span>
+      <h1 data-i18n="port.title">Keep up to date with ongoing projects</h1>
+      <p class="lead" data-i18n="port.lead">Explore all the projects we're working on and see how we're helping businesses achieve their goals.</p>
+    </div>
+  </section>
+
+  <!-- FILTERS + GRID -->
+  <section>
+    <div class="container">
+      <div class="portfolio-filters reveal">
+        <button class="filter-btn active" data-filter="all" data-i18n="port.filter.all">All work</button>
+        <button class="filter-btn" data-filter="web" data-i18n="port.filter.web">Web</button>
+        <button class="filter-btn" data-filter="brand" data-i18n="port.filter.brand">Brand</button>
+        <button class="filter-btn" data-filter="app" data-i18n="port.filter.app">App</button>
+        <button class="filter-btn" data-filter="desktop" data-i18n="port.filter.desktop">Desktop</button>
+      </div>
+
+      <div class="portfolio-grid reveal-stagger">
+
+        <div class="project-card" data-category="web brand">
+          <div class="project-visual project-bg-1" style="background-image: url('portfolio/ProGrass/wipLanding.png'); background-size: cover; background-position: center;">
+            <div class="project-label">
+              <div class="cat" data-i18n="port.p1.cat">Web · Brand</div>
+              <h4 data-i18n="port.p1.title">ProGrass</h4>
+            </div>
+          </div>
+          <div class="project-info">
+            <p data-i18n="port.p1.desc">Custom made HTML website for landscaping startup.</p>
+            <button class="project-expand-btn" aria-label="Expand details">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="project-expand">
+            <div class="project-expand-inner">
+              <div class="project-media-grid">
+                <div class="project-media project-media-1 has-image" style="background-image: url('portfolio/ProGrass/wipPortfolio.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-2 has-image" style="background-image: url('portfolio/ProGrass/wipAssistant.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-3 has-image" style="background-image: url('portfolio/ProGrass/wipContactForms.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-4 has-image" style="background-image: url('portfolio/ProGrass/wipStaffLogin.png'); background-size: cover; background-position: top;"></div>
+              </div>
+              <div class="project-expand-desc" data-i18n="port.p1.expand">
+                <p><b>Landscaping Business Portfolio Website.</b></p>
+                <p>Vanilla Node.js HTTP server (no frameworks)</p>
+                <p>JavaScript (ES6+) ES Modules</p>
+                <p>Custom i18n module (PT/EN bilingual)</p>
+                <p>Rule-based AI chat assistant</p>
+                <p>Formspree email + WhatsApp contact integration</p>
+                <p>Responsive CSS with CSS variables and IntersectionObserver animations</p>
+                <p>Portfolio gallery with masonry grid and showcase overlay</p>
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">Node.js</span>
+                <span class="project-tech-tag">JavaScript</span>
+                <span class="project-tech-tag">HTML</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="app desktop">
+          <div class="project-visual project-bg-2">
+            <div class="project-label">
+              <div class="cat" data-i18n="port.p2.cat">App · Desktop</div>
+              <h4 data-i18n="port.p2.title">MyTree</h4>
+            </div>
+          </div>
+          <div class="project-info">
+            <p data-i18n="port.p2.desc">Custom desktop application for family tree research and management.</p>
+            <button class="project-expand-btn" aria-label="Expand details">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="project-expand">
+            <div class="project-expand-inner">
+              <div class="project-media-grid">
+                <div class="project-media project-media-4"></div>
+                <div class="project-media project-media-5"></div>
+                <div class="project-media project-media-6"></div>
+              </div>
+              <div class="project-expand-desc" data-i18n="port.p2.expand">
+                <div><b>Family Tree Manager App</b></div>
+                <p>SQL Database</p>
+                <p>JSON/ZIP Backups</p>
+                <p>PDF/GEDCOM exports</p>
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">SQL</span>
+                <span class="project-tech-tag">JSON</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="app desktop">
+          <div class="project-visual project-bg-3" style="background-image: url('portfolio/AutoSocial/icon.ico'); background-size: contain; background-position: center; background-repeat: no-repeat;">
+            <div class="project-label">
+              <div class="cat" data-i18n="port.p3.cat">App · Desktop</div>
+              <h4 data-i18n="port.p3.title">AutoSocial</h4>
+            </div>
+          </div>
+          <div class="project-info">
+            <p data-i18n="port.p3.desc">Social media management application for small businesses, entrepreneurs and content creators.</p>
+            <button class="project-expand-btn" aria-label="Expand details">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="project-expand">
+            <div class="project-expand-inner">
+              <div class="project-media-grid">
+                <div class="project-media project-media-7 has-image" style="background-image: url('portfolio/AutoSocial/icon.ico'); background-size: contain; background-position: center; background-repeat: no-repeat;"></div>
+                <div class="project-media project-media-8 has-image" style="background-image: url('portfolio/AutoSocial/wipPost.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-9 has-image" style="background-image: url('portfolio/AutoSocial/wipSchedule.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-10 has-image" style="background-image: url('portfolio/AutoSocial/wipDashboard.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-11 has-image" style="background-image: url('portfolio/AutoSocial/wipFetch.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-12 has-image" style="background-image: url('portfolio/AutoSocial/wipIGOAuth.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-13 has-image" style="background-image: url('portfolio/AutoSocial/wipQueue.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-14 has-image" style="background-image: url('portfolio/AutoSocial/wipProviders.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-15 has-image" style="background-image: url('portfolio/AutoSocial/wipSettings1.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-16 has-image" style="background-image: url('portfolio/AutoSocial/wipSettings2.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-17 has-image" style="background-image: url('portfolio/AutoSocial/wipTKTKOAuth.png'); background-size: cover; background-position: top;"></div>
+              </div>
+              <div class="project-expand-desc" data-i18n="port.p3.expand">
+                <p><b>AI Powered Social Media Manager App</b></p>
+                <p>Backend: Node.js</p>
+                <p>JavaScript (ES6+)</p>
+                <p>Electron</p>
+                <p>Instagram/Youtube content bot</p>
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">JavaScript</span>
+                <span class="project-tech-tag">Node.js</span>
+                <span class="project-tech-tag">Electron</span>
+                <span class="project-tech-tag">AI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web brand">
+          <div class="project-visual project-bg-4" style="background-image: url('portfolio/LusoTech/logodark.png'); background-size: contain; background-position: center; background-repeat: no-repeat;">
+            <div class="project-label">
+              <div class="cat" data-i18n="port.p4.cat">Web · Brand</div>
+              <h4 data-i18n="port.p4.title">LusoTech</h4>
+            </div>
+          </div>
+          <div class="project-info">
+            <p data-i18n="port.p4.desc">Custom website for tech startup.</p>
+            <button class="project-expand-btn" aria-label="Expand details">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="project-expand">
+            <div class="project-expand-inner">
+              <div class="project-media-grid">
+                <div class="project-media project-media-10 has-image" style="background-image: url('portfolio/LusoTech/landing.png'); background-size: cover; background-position: top;"></div>
+                <div class="project-media project-media-11 has-image" style="background-image: url('portfolio/LusoTech/logodark.png'); background-size: cover; background-position: center;"></div>
+                <div class="project-media project-media-12 has-image" style="background-image: url('portfolio/LusoTech/logolight.png'); background-size: cover; background-position: center;"></div>
+              </div>
+              <div class="project-expand-desc" data-i18n="port.p4.expand">
+                <p><b>Personal brand website.</b></p>
+                <p>Vanilla HTML/CSS/JS (no framework, no build tools).</p>
+                <p>Static multi-page site (Home, About, Portfolio, Products)</p>
+                <p>Custom design system with dark/light theme</p>
+                <p>Client-side i18n engine (EN/PT translations)</p>
+                <p>AI Chat widget (rule-based, no backend)</p>
+                <p>SVG icon system (lazy-loaded partial)</p>
+                <p>Purchase modal (client-side only, simulated payment)</p>
+                <p>Contact form (client-side only, no submission)</p>
+                <p>No backend, no database, no package manager</p>
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">HTML</span>
+                <span class="project-tech-tag">JavaScript</span>
+                <span class="project-tech-tag">CSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="grid-4 reveal-stagger">
+          <div style="text-align: left;">
+            <div class="stat-num" style="font-size: 2.5rem;"><span data-counter="4" data-suffix="">0</span></div>
+            <div class="stat-label" data-i18n="port.stat1.label">WIP Projects</div>
+          </div>
+          <div style="text-align: left;">
+            <div class="stat-num" style="font-size: 2.5rem;"><span data-counter="4" data-suffix="">0</span></div>
+            <div class="stat-label" data-i18n="port.stat2.label">Total Projects</div>
+          </div>
+          <div style="text-align: left;">
+            <div class="stat-num" style="font-size: 2.5rem;"><span data-counter="1" data-suffix="">0</span></div>
+            <div class="stat-label" data-i18n="port.stat3.label">Partnerships</div>
+          </div>
+          <div style="text-align: left;">
+            <div class="stat-num" style="font-size: 2.5rem;"><span data-counter="1" data-suffix="">0</span></div>
+            <div class="stat-label" data-i18n="port.stat4.label">Clients</div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="container-narrow">
+        <h2 data-i18n="port.cta.title">Got a project in mind?</h2>
+        <p class="lead" data-i18n="port.cta.lead">We take on a small number of new engagements each quarter. If you've got something ambitious, we'd love to hear about it.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href="index.html#contact" data-i18n="port.cta.btn1">Start a project</a>
+          <a class="btn btn-outline-light btn-lg" href="products.html" data-i18n="port.cta.btn2">Browse products</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html">
+            <img src="brand/simpleicon.png" alt="LusoTech">
+            <span>LusoTech</span>
+          </a>
+          <p class="footer-about" data-i18n="footer.about">Engineered digital solutions for businesses and private individuals.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.studio">Studio</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+            <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.services">Services</h4>
+          <ul>
+            <li><a href="index.html#services" data-i18n="footer.serv.custom">Custom Websites</a></li>
+            <li><a href="index.html#services" data-i18n="footer.serv.desktop">Desktop Applications</a></li>
+            <li><a href="index.html#services" data-i18n="footer.serv.automation">Business Automation</a></li>
+            <li><a href="index.html#services" data-i18n="footer.serv.maintenance">Maintenance & Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact">Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@lusotech.io" data-i18n="footer.mail">hello@lusotech.io</a></li>
+            <li><a href="tel:+351000000000" data-i18n="footer.phone">+351 000 000 000</a></li>
+            <li><a href="index.html#contact" data-i18n="footer.send">Send a brief</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copy">© 2026 LusoTech. All rights reserved.</span>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-arrow lightbox-arrow-prev" aria-label="Previous">&#8249;</button>
+    <button class="lightbox-arrow lightbox-arrow-next" aria-label="Next">&#8250;</button>
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    </div>
+    <div class="lightbox-nav" id="lightbox-nav"></div>
+  </div>
+
+  <!-- ==================== AI CHAT WIDGET ==================== -->
+  <div class="chat-launcher">
+    <button type="button" class="chat-toggle" id="chat-toggle" aria-label="Open chat" aria-expanded="false">
+      <svg class="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="Chat with LusoTech assistant" aria-hidden="true">
+    <div class="chat-header">
+      <div class="chat-avatar" aria-hidden="true">L</div>
+      <div class="chat-header-info">
+        <div class="title" data-i18n="chat.title">LusoTech Assistant</div>
+        <div class="subtitle" data-i18n="chat.subtitle">Online · replies in seconds</div>
+      </div>
+      <button type="button" class="chat-close" id="chat-close" aria-label="Close chat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="chat-body">
+      <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+      <div class="chat-suggestions" id="chat-suggestions">
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.1">What services do you offer?</button>
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.2">Tell me about pricing</button>
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.3">How do I start a project?</button>
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.4">Book a call</button>
+      </div>
+      <div class="chat-input">
+        <textarea id="chat-input" rows="1" data-i18n-attr="placeholder:chat.placeholder" placeholder="Type your message…"></textarea>
+        <button type="button" class="chat-send" id="chat-send" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/i18n-engine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LusoTech — Engineered Digital Solutions</title>
+  <meta name="description" content="LusoTech builds premium digital products, websites, and software for forward-thinking brands.">
+
+  <link rel="icon" type="image/png" href="brand/simpleicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Apply theme synchronously to avoid a flash of wrong theme.
+    (function () {
+      try {
+        var saved = localStorage.getItem('lusotech-theme');
+        var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (_) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- SVG icon library (hidden) -->
+  <div id="icon-defs" aria-hidden="true"></div>
+  <script>
+    fetch('partials/icons.html').then(r => r.text()).then(t => {
+      document.getElementById('icon-defs').innerHTML = t;
+    });
+  </script>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html">
+        <img src="brand/simpleicon.png" alt="LusoTech">
+        <span>LusoTech</span>
+      </a>
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a class="nav-link" href="index.html" data-i18n="nav.home" aria-current="page">Home</a></li>
+          <li><a class="nav-link" href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a class="nav-link" href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+          <li><a class="nav-link" href="products.html" data-i18n="nav.products">Products</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="nav-utils">
+            <div class="lang-switch" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Language">
+              <button type="button" class="lang-btn" data-lang="en" data-i18n-attr="aria-label:lang.label">EN</button>
+              <button type="button" class="lang-btn" data-lang="pt" data-i18n-attr="aria-label:lang.label">PT</button>
+            </div>
+            <button type="button" class="theme-toggle" aria-pressed="false" data-i18n-attr="aria-label:theme.toLight" aria-label="Switch to light theme">
+              <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+              <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="12" y1="2"  x2="12" y2="4"/>
+                <line x1="12" y1="20" x2="12" y2="22"/>
+                <line x1="2"  y1="12" x2="4"  y2="12"/>
+                <line x1="20" y1="12" x2="22" y2="12"/>
+                <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/>
+                <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/>
+                <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/>
+                <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/>
+              </svg>
+            </button>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="#contact" data-i18n="nav.contact">Contact</a>
+          <a class="btn btn-primary btn-sm" href="products.html" data-i18n="nav.cta">Get started</a>
+        </div>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" data-i18n-attr="aria-label:nav.toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow" data-i18n="hero.eyebrow">Engineered Digital Solutions</span>
+          <h1 data-i18n="hero.title">
+            We build <span class="accent">software</span> that moves your business forward.
+          </h1>
+          <p class="lead" data-i18n="hero.lead">
+            We develop websites, desktop applications, and AI-Powered tools tailored to real-world needs. Combining thoughtful design and reliable technology.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="products.html" data-i18n="hero.cta1">
+              Explore products
+              <svg width="16" height="16"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="portfolio.html" data-i18n="hero.cta2">View our work</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="stat-num"><span data-counter="1" data-suffix="">0</span></div>
+              <div class="stat-label" data-i18n="hero.stat1.label">Clients</div>
+            </div>
+            <div>
+              <div class="stat-num"><span data-counter="4" data-suffix="">0</span></div>
+              <div class="stat-label" data-i18n="hero.stat2.label">Projects</div>
+            </div>
+            <div>
+              <div class="stat-num"><span data-counter="4" data-suffix="">0</span></div>
+              <div class="stat-label" data-i18n="hero.stat3.label">WIP</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="brand-mark">
+            <img src="brand/logodark.png" data-i18n-attr="alt:hero.mark.alt" alt="LusoTech mark" class="brand-mark-dark">
+            <img src="brand/logolight.png" data-i18n-attr="alt:hero.mark.alt" alt="LusoTech mark" class="brand-mark-light">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES ==================== -->
+  <section id="services" class="bg-cream">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-i18n="services.eyebrow">What we do</span>
+        <h2 data-i18n="services.title">Services built to scale.</h2>
+        <p class="lead" data-i18n="services.lead">A focused set of capabilities we deliver exceptionally well — no fluff, no scope creep, just expertise applied to ambitious problems.</p>
+      </div>
+
+      <div class="grid-3 reveal-stagger">
+        <div class="card service-card">
+          <div class="service-icon"><svg><use href="#i-code"/></svg></div>
+          <h3 data-i18n="service.custom.title">Custom Websites</h3>
+          <p data-i18n="service.custom.desc">Fast, responsive websites built from the ground up with clean code, modern design, and bilingual support when needed.</p>
+          <ul class="service-tags">
+            <li class="service-tag">HTML</li>
+            <li class="service-tag">CSS</li>
+            <li class="service-tag">Node.js</li>
+            <li class="service-tag">JavaScript</li>
+          </ul>
+        </div>
+
+        <div class="card service-card">
+          <div class="service-icon"><svg><use href="#i-palette"/></svg></div>
+          <h3 data-i18n="service.desktop.title">Desktop Applications</h3>
+          <p data-i18n="service.desktop.desc">Cross-platform desktop software designed to simplify workflows, manage data, and solve real business problems.</p>
+          <ul class="service-tags">
+            <li class="service-tag">Electron</li>
+            <li class="service-tag">JSON</li>
+            <li class="service-tag">SQLite</li>
+            <li class="service-tag">PDF</li>
+          </ul>
+        </div>
+
+        <div class="card service-card">
+          <div class="service-icon"><svg><use href="#i-cloud"/></svg></div>
+          <h3 data-i18n="service.ai.title">AI-Powered Tools</h3>
+          <p data-i18n="service.ai.desc">Intelligent assistants and automation tools that help businesses save time and improve productivity.</p>
+          <ul class="service-tags">
+            <li class="service-tag">AI Integration</li>
+            <li class="service-tag">Automation</li>
+            <li class="service-tag">Content Tools</li>
+          </ul>
+        </div>
+
+        <div class="card service-card">
+          <div class="service-icon"><svg><use href="#i-phone"/></svg></div>
+          <h3 data-i18n="service.automation.title">Business Automation</h3>
+          <p data-i18n="service.automation.desc">Custom solutions that automate repetitive tasks, data processing, reporting, and operational workflows.</p>
+          <ul class="service-tags">
+            <li class="service-tag">Workflows</li>
+            <li class="service-tag">Scheduling</li>
+            <li class="service-tag">Integrations</li>
+          </ul>
+        </div>
+
+        <div class="card service-card">
+          <div class="service-icon"><svg><use href="#i-monitor"/></svg></div>
+          <h3 data-i18n="service.product.title">Product Development</h3>
+          <p data-i18n="service.product.desc">From idea to launch, we design and build software products with a focus on usability, performance, and maintainability.</p>
+          <ul class="service-tags">
+            <li class="service-tag">MVPs</li>
+            <li class="service-tag">SaaS</li>
+            <li class="service-tag">Internal Tools</li>
+          </ul>
+        </div>
+
+        <div class="card service-card">
+          <div class="service-icon"><svg><use href="#i-shield"/></svg></div>
+          <h3 data-i18n="service.maintenance.title">Maintenance & Support</h3>
+          <p data-i18n="service.maintenance.desc">Ongoing updates, improvements, bug fixes, and technical support to keep your software running smoothly.</p>
+          <ul class="service-tags">
+            <li class="service-tag">Updates</li>
+            <li class="service-tag">Monitoring</li>
+            <li class="service-tag">Improvements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-i18n="testi.eyebrow">Trusted by</span>
+        <h2 data-i18n="testi.title">Teams that ship with us.</h2>
+      </div>
+      <div class="testimonial-grid reveal-stagger">
+        <div class="testimonial">
+          <p data-i18n="testi.1.quote"></p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">VG</div>
+            <div>
+              <div class="testimonial-name" data-i18n="testi.1.name">Vagner Guilherme Oliveira</div>
+              <div class="testimonial-role" data-i18n="testi.1.role">ProGrass, Portugal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact" class="bg-gray">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-i18n="contact.eyebrow">Get in touch</span>
+        <h2 data-i18n="contact.title">Tell us about your project.</h2>
+        <p class="lead" data-i18n="contact.lead">We reply within one business day. Briefs welcome — the more context, the better.</p>
+      </div>
+
+      <form class="contact-form reveal" id="contact-form">
+        <div class="field">
+          <label for="name" data-i18n="contact.name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name" data-i18n-attr="placeholder:contact.name.ph">
+        </div>
+        <div class="field">
+          <label for="email" data-i18n="contact.email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@company.com" data-i18n-attr="placeholder:contact.email.ph">
+        </div>
+        <div class="field full">
+          <label for="company" data-i18n="contact.company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Your company (optional)" data-i18n-attr="placeholder:contact.company.ph">
+        </div>
+        <div class="field full">
+          <label for="budget" data-i18n="contact.budget">Budget range</label>
+          <select id="budget" name="budget">
+            <option data-i18n="contact.budget.1">Under €500</option>
+            <option data-i18n="contact.budget.2">€500 – €1500</option>
+            <option data-i18n="contact.budget.3">€1500 – €5000</option>
+            <option data-i18n="contact.budget.4">€5000+</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="message" data-i18n="contact.message">Project brief</label>
+          <textarea id="message" name="message" required placeholder="A short description of what you're building…" data-i18n-attr="placeholder:contact.message.ph"></textarea>
+        </div>
+        <div class="field full">
+          <button type="submit" class="btn btn-primary btn-lg" data-i18n="contact.submit">Send message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html">
+            <img src="brand/simpleicon.png" alt="LusoTech">
+            <span>LusoTech</span>
+          </a>
+          <p class="footer-about" data-i18n="footer.about">Engineered digital solutions for businesses and private individuals.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.studio">Studio</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+            <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.services">Services</h4>
+          <ul>
+            <li><a href="index.html#services" data-i18n="footer.serv.custom">Custom Websites</a></li>
+            <li><a href="index.html#services" data-i18n="footer.serv.desktop">Desktop Applications</a></li>
+            <li><a href="index.html#services" data-i18n="footer.serv.automation">Business Automation</a></li>
+            <li><a href="index.html#services" data-i18n="footer.serv.maintenance">Maintenance & Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact">Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@lusotech.io" data-i18n="footer.mail">hello@lusotech.io</a></li>
+            <li><a href="tel:+351000000000" data-i18n="footer.phone">+351 000 000 000</a></li>
+            <li><a href="index.html#contact" data-i18n="footer.send">Send a brief</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copy">© 2026 LusoTech. All rights reserved.</span>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== AI CHAT WIDGET ==================== -->
+  <div class="chat-launcher">
+    <button type="button" class="chat-toggle" id="chat-toggle" aria-label="Open chat" aria-expanded="false">
+      <svg class="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="Chat with LusoTech assistant" aria-hidden="true">
+    <div class="chat-header">
+      <div class="chat-avatar" aria-hidden="true">L</div>
+      <div class="chat-header-info">
+        <div class="title" data-i18n="chat.title">LusoTech Assistant</div>
+        <div class="subtitle" data-i18n="chat.subtitle">Online · replies in seconds</div>
+      </div>
+      <button type="button" class="chat-close" id="chat-close" aria-label="Close chat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="chat-body">
+      <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+      <div class="chat-suggestions" id="chat-suggestions">
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.1">What services do you offer?</button>
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.2">Tell me about pricing</button>
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.3">How do I start a project?</button>
+        <button type="button" class="chat-suggestion" data-i18n="chat.suggestion.4">Book a call</button>
+      </div>
+      <div class="chat-input">
+        <textarea id="chat-input" rows="1" data-i18n-attr="placeholder:chat.placeholder" placeholder="Type your message…"></textarea>
+        <button type="button" class="chat-send" id="chat-send" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/i18n-engine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
