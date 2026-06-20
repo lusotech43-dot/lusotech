@@ -42,6 +42,7 @@ app.post('/api/create-subscription', async (_req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
+      payment_method_types: ['card', 'paypal'],
       line_items: [
         {
           price_data: {
