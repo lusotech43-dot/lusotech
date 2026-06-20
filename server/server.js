@@ -1,16 +1,11 @@
 const express = require('express');
-const path = require('path');
 const cors = require('cors');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 
-// Serve static files from project root
-app.use(express.static(path.join(__dirname, '..')));
-
-// Allow CORS for both the Render URL and local dev
-const FRONTEND_URL = process.env.FRONTEND_URL || process.env.RENDER_EXTERNAL_URL || 'http://localhost:3000';
-app.use(cors({ origin: [FRONTEND_URL, 'http://localhost:3000'] }));
+const FRONTEND_URL = process.env.FRONTEND_URL || 'https://lusotech43-dot.github.io/lusotech';
+app.use(cors({ origin: FRONTEND_URL }));
 app.use(express.json());
 
 /* -----------------------------------------

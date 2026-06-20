@@ -4,7 +4,8 @@
   /* -----------------------------------------
      Configuration
      ----------------------------------------- */
-  var API_URL = '';
+  var API_URL = 'https://lusotech.onrender.com';
+  var BASE_PATH = window.location.pathname.replace(/\/[^/]*$/, '/');
 
   /* -----------------------------------------
      Payment status from redirect query params
@@ -22,14 +23,14 @@
         <p>Your subscription is now active. You\'ll receive a confirmation email shortly.</p>\
         <a href="products.html" class="btn btn-ghost" style="margin-top: var(--space-4);">Back to products</a>\
       </div>';
-      window.history.replaceState({}, '', '/products.html');
+      window.history.replaceState({}, '', BASE_PATH + 'products.html');
     } else if (payment === 'cancelled') {
       container.style.display = 'block';
       container.innerHTML = '<div class="card" style="padding: var(--space-6); text-align: center;">\
         <h3 style="margin-bottom: var(--space-3);">Payment cancelled</h3>\
         <p>No charges were made. Feel free to try again whenever you\'re ready.</p>\
       </div>';
-      window.history.replaceState({}, '', '/products.html');
+      window.history.replaceState({}, '', BASE_PATH + 'products.html');
     }
   })();
 
