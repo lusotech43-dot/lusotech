@@ -5,7 +5,19 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const app = express();
 
 const FRONTEND_URL = process.env.FRONTEND_URL || 'https://lusotech43-dot.github.io/lusotech';
-app.use(cors({ origin: FRONTEND_URL }));
+const ALLOWED_ORIGINS = [
+  'https://lusotech43-dot.github.io',
+  'http://localhost:5500',
+  'http://127.0.0.1:5500',
+];
+app.use(cors({
+  origin: function (origin, cb) {
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
+    const u = new URL(origin);
+    if (u.hostname.endsWith('.github.io')) return cb(null, true);
+    cb(null, false);
+  },
+}));
 app.use(express.json());
 
 /* -----------------------------------------
