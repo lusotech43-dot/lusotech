@@ -4,11 +4,7 @@
   /* -----------------------------------------
      Configuration
      ----------------------------------------- */
-  var API_URL = 'http://localhost:3000';
-  /* After deploying on Render, change API_URL to:
-     https://your-app-name.onrender.com
-     (no trailing slash)
-  */
+  var API_URL = 'https://lusotech.onrender.com';
 
   /* -----------------------------------------
      Payment status from redirect query params

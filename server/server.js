@@ -10,6 +10,13 @@ app.use(cors({ origin: FRONTEND_URL }));
 app.use(express.json());
 
 /* -----------------------------------------
+   Root - redirect to frontend
+   ----------------------------------------- */
+app.get('/', (_req, res) => {
+  res.redirect(FRONTEND_URL);
+});
+
+/* -----------------------------------------
    Config - exposes publishable key
    ----------------------------------------- */
 app.get('/api/config', (_req, res) => {
