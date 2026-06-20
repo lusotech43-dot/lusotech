@@ -1,20 +1,17 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+// Serve static files from project root
+app.use(express.static(path.join(__dirname, '..')));
 
-app.use(cors({ origin: FRONTEND_URL }));
+// Allow CORS for both the Render URL and local dev
+const FRONTEND_URL = process.env.FRONTEND_URL || process.env.RENDER_EXTERNAL_URL || 'http://localhost:3000';
+app.use(cors({ origin: [FRONTEND_URL, 'http://localhost:3000'] }));
 app.use(express.json());
-
-/* -----------------------------------------
-   Root - redirect to frontend
-   ----------------------------------------- */
-app.get('/', (_req, res) => {
-  res.redirect(FRONTEND_URL);
-});
 
 /* -----------------------------------------
    Config - exposes publishable key

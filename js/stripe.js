@@ -4,7 +4,7 @@
   /* -----------------------------------------
      Configuration
      ----------------------------------------- */
-  var API_URL = 'https://lusotech.onrender.com';
+  var API_URL = '';
 
   /* -----------------------------------------
      Payment status from redirect query params
