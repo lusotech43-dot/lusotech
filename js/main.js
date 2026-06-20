@@ -178,83 +178,17 @@
   }
 
   /* -----------------------------------------
-     Product purchase modal
+     Escape key - close lightbox + chat
      ----------------------------------------- */
-  const modal = document.getElementById('purchase-modal');
-  const modalProductName = document.getElementById('modal-product-name');
-  const modalProductDesc = document.getElementById('modal-product-desc');
-  const modalProductPrice = document.getElementById('modal-product-price');
-  const modalClose = document.querySelector('.modal-close');
-
-  function openModal(name, desc, price) {
-    if (!modal) return;
-    modalProductName.textContent = name;
-    modalProductDesc.textContent = desc;
-    modalProductPrice.textContent = price;
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    if (!modal) return;
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.querySelectorAll('.js-buy').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const card = btn.closest('.product-card');
-      const name = card.dataset.name || 'Product';
-      const desc = card.dataset.desc || '';
-      const price = card.dataset.price || '';
-      openModal(name, desc, price);
-    });
-  });
-
-  if (modalClose) modalClose.addEventListener('click', closeModal);
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-  }
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeModal();
       if (typeof closeLightbox === 'function') closeLightbox();
       if (chatPanel && chatPanel.classList.contains('open')) toggleChat();
     }
   });
 
   /* -----------------------------------------
-     Payment form submit
-     ----------------------------------------- */
-  const paymentForm = document.getElementById('payment-form');
-  if (paymentForm) {
-    paymentForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = paymentForm.querySelector('button[type="submit"]');
-      const original = btn.dataset.original || btn.textContent;
-      btn.dataset.original = original;
-      btn.setAttribute('data-i18n', 'prod.modal.processing');
-      btn.textContent = (window.I18N && window.I18N.t('prod.modal.processing')) || 'Processing…';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.setAttribute('data-i18n', 'prod.modal.success');
-        btn.textContent = (window.I18N && window.I18N.t('prod.modal.success')) || '✓ Payment initiated';
-        setTimeout(() => {
-          closeModal();
-          paymentForm.reset();
-          btn.textContent = original;
-          btn.setAttribute('data-i18n', 'prod.modal.submit');
-          btn.disabled = false;
-        }, 1400);
-      }, 900);
-    });
-  }
-
-  /* -----------------------------------------
-     Contact form submit
+     Contact form submit (Formspree)
      ----------------------------------------- */
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
@@ -266,16 +200,39 @@
       btn.setAttribute('data-i18n', 'contact.submitting');
       btn.textContent = (window.I18N && window.I18N.t('contact.submitting')) || 'Sending…';
       btn.disabled = true;
-      setTimeout(() => {
-        btn.setAttribute('data-i18n', 'contact.success');
-        btn.textContent = (window.I18N && window.I18N.t('contact.success')) || '✓ Message sent';
-        setTimeout(() => {
+
+      const data = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        company: document.getElementById('company').value,
+        budget: document.getElementById('budget').value,
+        message: document.getElementById('message').value,
+        _replyto: document.getElementById('email').value,
+        _subject: 'New project inquiry from ' + document.getElementById('name').value,
+      };
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      })
+      .then(r => r.json())
+      .then(res => {
+        if (res.ok) {
+          btn.setAttribute('data-i18n', 'contact.success');
+          btn.textContent = (window.I18N && window.I18N.t('contact.success')) || '✓ Message sent';
           contactForm.reset();
-          btn.textContent = original;
-          btn.setAttribute('data-i18n', 'contact.submit');
-          btn.disabled = false;
-        }, 1800);
-      }, 900);
+        } else {
+          throw new Error(res.error || 'Form submission failed');
+        }
+      })
+      .catch(() => {
+        btn.setAttribute('data-i18n', 'contact.submit');
+        btn.textContent = (window.I18N && window.I18N.t('contact.submit')) || 'Send message';
+      })
+      .finally(() => {
+        btn.disabled = false;
+      });
     });
   }
 

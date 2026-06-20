@@ -1,0 +1,11 @@
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# IDE
+.vscode/settings.json
+
+# Node
+node_modules/
+.env
